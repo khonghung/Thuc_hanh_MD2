@@ -30,7 +30,13 @@ switch ($page) {
         $id = $_GET['id'];
         $productController->update($id);
         break;
-
+    
+        default:
+        if (isset($_GET['search'])) {
+            $productController->search($_GET['search']);
+        } else {
+            $productController->index();
+        } 
 }
 
 
